@@ -1,0 +1,12 @@
+services:
+  frontend:
+    build: .
+    restart: always #change if you don't want your container restarting test
+    environment:
+      - NODE_ENV=production
+    networks:
+      - proxy 
+
+networks:
+  proxy:
+    external: true

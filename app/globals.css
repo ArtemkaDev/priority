@@ -1,0 +1,480 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 9% 5.9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 10% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family:
+      "Inter",
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      "Helvetica Neue",
+      Arial,
+      sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+  }
+}
+
+/* Enhanced handwritten style for agency name */
+.handwritten-title {
+  font-family: "Kalam", "Caveat", "Dancing Script", "Indie Flower", cursive, sans-serif;
+  font-weight: 600;
+  transform: rotate(-1deg) scale(1.05);
+  text-shadow: 2px 2px 0px rgba(25, 61, 25, 0.1), 1px 1px 3px rgba(25, 61, 25, 0.2);
+  letter-spacing: 0.05em;
+  color: #193d19;
+  position: relative;
+  display: inline-block;
+  padding: 0.2em 0.5em;
+}
+
+.handwritten-title::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 100 100'%3E%3Cpath d='M5 50Q25 30 50 50T95 50' stroke='%23193d19' stroke-width='2' fill='none' opacity='0.2'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Alternative handwritten style - more casual */
+.handwritten-casual {
+  font-family: "Marker Felt", "Bradley Hand", "Chalkduster", "Brush Script MT", cursive, sans-serif;
+  font-weight: 500;
+  transform: rotate(-1.5deg) scale(1.02);
+  text-shadow: 2px 2px 0px rgba(25, 61, 25, 0.08), 1px 1px 3px rgba(25, 61, 25, 0.15);
+  letter-spacing: 0.08em;
+  filter: drop-shadow(1px 1px 2px rgba(25, 61, 25, 0.1));
+}
+
+/* Elegant handwritten style */
+.handwritten-elegant {
+  font-family: "Apple Chancery", "Snell Roundhand", "Lucida Handwriting", "Bradley Hand", cursive, sans-serif;
+  font-weight: 400;
+  font-style: italic;
+  transform: rotate(-0.8deg) skew(-1deg, 0deg);
+  text-shadow: 1px 1px 0px rgba(25, 61, 25, 0.12), 2px 2px 4px rgba(25, 61, 25, 0.08);
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  position: relative;
+}
+
+.handwritten-elegant::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 5%;
+  right: 5%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(25, 61, 25, 0.3) 20%,
+    rgba(25, 61, 25, 0.3) 80%,
+    transparent 100%
+  );
+  transform: rotate(-0.5deg);
+  border-radius: 1px;
+}
+
+/* Marketing Typography */
+.marketing-headline {
+  background: linear-gradient(135deg, #193d19 0%, #2d5a2d 50%, #193d19 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  text-shadow: 0 4px 8px rgba(25, 61, 25, 0.1);
+}
+
+.marketing-subheadline {
+  background: linear-gradient(135deg, #193d19 0%, #4a7c4a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.marketing-accent {
+  color: #193d19;
+  font-weight: 800;
+  text-shadow: 0 2px 4px rgba(25, 61, 25, 0.1);
+  letter-spacing: -0.01em;
+}
+
+/* Typography improvements */
+.text-compact {
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
+.text-description {
+  line-height: 1.5;
+  color: #6b7280;
+  max-width: 65ch;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #e0ebe2;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #193d19, #2d5a2d);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #0f2a0f, #193d19);
+}
+
+/* Marketing animations */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-marketing {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+@keyframes gradient-shift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* New scroll animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes rotateIn {
+  from {
+    opacity: 0;
+    transform: rotate(-180deg) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+.pulse-marketing {
+  animation: pulse-marketing 2s ease-in-out infinite;
+}
+
+.gradient-text-animated {
+  background: linear-gradient(-45deg, #193d19, #2d5a2d, #4a7c4a, #193d19);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 3s ease infinite;
+}
+
+/* Enhanced scroll animations */
+.animate-fadeInUp {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-fadeInDown {
+  animation: fadeInDown 0.6s ease-out forwards;
+}
+
+.animate-fadeInLeft {
+  animation: fadeInLeft 0.6s ease-out forwards;
+}
+
+.animate-fadeInRight {
+  animation: fadeInRight 0.6s ease-out forwards;
+}
+
+.animate-zoomIn {
+  animation: zoomIn 0.6s ease-out forwards;
+}
+
+.animate-slideInUp {
+  animation: slideInUp 0.8s ease-out forwards;
+}
+
+.animate-bounceIn {
+  animation: bounceIn 0.8s ease-out forwards;
+}
+
+.animate-rotateIn {
+  animation: rotateIn 0.8s ease-out forwards;
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Gradient backgrounds */
+.gradient-marketing {
+  background: linear-gradient(135deg, #e0ebe2 0%, #f0f7f1 50%, #e0ebe2 100%);
+}
+
+.gradient-dark {
+  background: linear-gradient(135deg, #193d19 0%, #0f2a0f 50%, #193d19 100%);
+}
+
+/* Enhanced button styles */
+.btn-marketing {
+  background: linear-gradient(135deg, #193d19 0%, #2d5a2d 100%);
+  box-shadow: 0 4px 15px rgba(25, 61, 25, 0.3);
+  transform: translateY(0);
+  transition: all 0.3s ease;
+}
+
+.btn-marketing:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(25, 61, 25, 0.4);
+}
+
+/* Enhanced effects */
+.glow-effect {
+  box-shadow: 0 0 20px rgba(25, 61, 25, 0.1);
+  transition: all 0.3s ease;
+}
+
+.glow-effect:hover {
+  box-shadow: 0 0 30px rgba(25, 61, 25, 0.2);
+}
+
+.text-shadow-marketing {
+  text-shadow: 2px 4px 8px rgba(25, 61, 25, 0.15);
+}
+
+/* Text effects */
+.text-glow {
+  text-shadow: 0 0 10px rgba(25, 61, 25, 0.3);
+}
+
+.text-bold-marketing {
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.marketing-bold {
+  font-weight: 800;
+}
+
+/* Spacing utilities */
+.section-spacing {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.content-spacing {
+  margin-bottom: 1.5rem;
+}
+
+.tight-spacing {
+  margin-bottom: 0.75rem;
+}
