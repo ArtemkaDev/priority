@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'standalone',
+  output: 'export',
   eslint: {
     ignoreDuringBuilds: true,
   },
@@ -11,5 +11,22 @@ const nextConfig = {
     unoptimized: true,
   },
 }
+
+const isGithubActions = process.env.GITHUB_ACTIONS || false
+
+if (isGithubActions) {  
+  nextConfig = {
+    output: 'export',
+    images: {
+      unoptimized: true,
+    },
+    assetPrefix: `/`,
+    basePath: ``,
+    eslint: {
+      ignoreDuringBuilds: true,
+    },
+  }
+}
+
 
 export default nextConfig
